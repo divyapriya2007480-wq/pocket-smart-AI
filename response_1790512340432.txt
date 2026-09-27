@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in - PocketSmart AI</title>
+    <meta name="description" content="AI-assisted, budget-aware lifestyle planning">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/style.css">
+    <script defer src="http://127.0.0.1:8000/static/js/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+    <nav class="container nav">
+        <a class="brand" href="/">PocketSmart AI</a>
+        <div class="nav-links">
+            
+                <a href="/login">Log in</a>
+                <a class="button small" href="/register">Create account</a>
+            
+        </div>
+    </nav>
+</header>
+
+<main class="container page">
+    
+<section class="auth-card">
+    <h1>Welcome back</h1>
+    <p>Log in to access your planners and recommendation history.</p>
+
+    
+
+    <form action="/login" method="post" class="form-stack">
+        <label>
+            Email
+            <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button class="button" type="submit">Log in</button>
+    </form>
+    <p class="muted">No account? <a href="/register">Create one</a>.</p>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>AI suggestions and prices are estimates. Verify listings, vendors, fees, and availability before purchasing.</p>
+    </div>
+</footer>
+</body>
+</html>

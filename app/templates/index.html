@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}PocketSmart AI - Budget smarter{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <span class="eyebrow">Budget-aware recommendations</span>
+        <h1>Plan better without losing control of your budget.</h1>
+        <p>
+            Build practical plans for home interiors, parties, and occasion
+            jewelry. PocketSmart allocates your budget and creates searchable
+            marketplace recommendations.
+        </p>
+        <div class="actions">
+            {% if current_user %}
+                <a class="button" href="/dashboard">Open dashboard</a>
+            {% else %}
+                <a class="button" href="/register">Start planning</a>
+                <a class="button secondary" href="/login">Log in</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hero-panel">
+        <div class="metric"><strong>3</strong><span>specialized planners</span></div>
+        <div class="metric"><strong>1</strong><span>consolidated budget</span></div>
+        <div class="metric"><strong>24/7</strong><span>planning assistant</span></div>
+    </div>
+</section>
+
+<section>
+    <h2>Choose a planner</h2>
+    <div class="card-grid">
+        <article class="card">
+            <span class="icon">H</span>
+            <h3>Home interiors</h3>
+            <p>Allocate spending across furniture, lighting, storage, and decor.</p>
+        </article>
+        <article class="card">
+            <span class="icon">P</span>
+            <h3>Party planning</h3>
+            <p>Balance venue, catering, decoration, entertainment, and reserve funds.</p>
+        </article>
+        <article class="card">
+            <span class="icon">J</span>
+            <h3>Jewelry matching</h3>
+            <p>Coordinate jewelry with an occasion, preferences, and an optional outfit image.</p>
+        </article>
+    </div>
+</section>
+{% endblock %}

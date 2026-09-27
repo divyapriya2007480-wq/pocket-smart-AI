@@ -1,0 +1,16 @@
+{
+  "title": "Cloth Plan for daily wear",
+  "budget": 10000,
+  "currency": "INR",
+  "items": [
+    {
+      "name": "Cotton Shirt",
+      "price": 5000
+    },
+    {
+      "name": "Pant",
+      "price": 5000
+    }
+  ],
+  "preferences": "cotton comfortable,light color"
+}

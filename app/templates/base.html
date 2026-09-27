@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ app_name }}{% endblock %}</title>
+    <meta name="description" content="AI-assisted, budget-aware lifestyle planning">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <script defer src="{{ url_for('static', path='/js/app.js') }}"></script>
+</head>
+<body>
+<header class="site-header">
+    <nav class="container nav">
+        <a class="brand" href="/">PocketSmart AI</a>
+        <div class="nav-links">
+            {% if current_user %}
+                <a href="/dashboard">Dashboard</a>
+                <a href="/history">History</a>
+                <form action="/logout" method="post">
+                    <button class="link-button" type="submit">Log out</button>
+                </form>
+            {% else %}
+                <a href="/login">Log in</a>
+                <a class="button small" href="/register">Create account</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+<main class="container page">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>AI suggestions and prices are estimates. Verify listings, vendors, fees, and availability before purchasing.</p>
+    </div>
+</footer>
+</body>
+</html>

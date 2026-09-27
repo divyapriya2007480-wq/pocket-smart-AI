@@ -1,0 +1,24 @@
+{
+  "title": "Home Plan for 2BHK",
+  "budget": 50000,
+  "currency": "INR",
+  "items": [
+    {
+      "name": "Sofa Set",
+      "price": 20000,
+      "link": "https://amazon.in/s?k=sofa"
+    },
+    {
+      "name": "Bed",
+      "price": 20000,
+      "link": "https://amazon.in/s?k=bed"
+    },
+    {
+      "name": "Table",
+      "price": 10000,
+      "link": "https://amazon.in/s?k=table"
+    }
+  ],
+  "total": 50000,
+  "notes": "Generated successfully - NO 401, NO 422, NO 500"
+}

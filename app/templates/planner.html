@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}{{ planner_type|title }} planner - PocketSmart AI{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <span class="eyebrow">{{ planner_type|title }} planner</span>
+        <h1>Create a budget-aware {{ planner_type }} plan</h1>
+        <p>Complete the details below. Required fields are marked by the browser.</p>
+    </div>
+</section>
+
+{% if error %}<div class="alert">{{ error }}</div>{% endif %}
+
+<form
+    class="planner-form"
+    method="post"
+    action="/generate-{{ planner_type }}"
+    {% if planner_type == "jewelry" %}enctype="multipart/form-data"{% endif %}
+    data-loading-form
+>
+    <div class="form-grid">
+        <label>
+            Total budget
+            <input type="number" name="budget" min="1" step="0.01" required>
+        </label>
+
+        <label>
+            Currency
+            <select name="currency">
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </label>
+
+        {% if planner_type == "home" %}
+            <label>
+                Rooms
+                <input name="rooms" placeholder="Living room, 2 bedrooms" required>
+            </label>
+            <label>
+                Preferred style
+                <select name="style">
+                    <option>Modern</option>
+                    <option>Minimal</option>
+                    <option>Traditional</option>
+                    <option>Industrial</option>
+                    <option>Bohemian</option>
+                </select>
+            </label>
+            <label class="wide">
+                Required items and quantities
+                <textarea name="required_items" required
+                    placeholder="1 sofa, 2 ceiling fans, 1 dining table, 4 lights"></textarea>
+            </label>
+
+        {% elif planner_type == "party" %}
+            <label>
+                Event type
+                <input name="event_type" placeholder="Birthday, wedding, corporate" required>
+            </label>
+            <label>
+                Number of guests
+                <input type="number" name="guest_count" min="1" required>
+            </label>
+            <label>
+                City
+                <input name="city" required>
+            </label>
+            <label>
+                Venue preference
+                <input name="venue_preference" placeholder="Indoor, outdoor, hotel">
+            </label>
+            <label>
+                Food preference
+                <select name="food_preference">
+                    <option>Mixed</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Indian</option>
+                    <option>Continental</option>
+                </select>
+            </label>
+
+        {% else %}
+            <label>
+                Occasion
+                <input name="occasion" placeholder="Wedding, festival, formal dinner" required>
+            </label>
+            <label>
+                Style
+                <select name="style">
+                    <option>Elegant</option>
+                    <option>Minimal</option>
+                    <option>Traditional</option>
+                    <option>Contemporary</option>
+                    <option>Statement</option>
+                </select>
+            </label>
+            <label>
+                Preferred material
+                <input name="preferred_material"
+                       placeholder="Gold-tone, silver, pearls, no preference">
+            </label>
+            <label>
+                Outfit image
+                <input type="file" name="outfit_image"
+                       accept="image/jpeg,image/png,image/webp">
+                <small>Optional. Maximum 5 MB.</small>
+            </label>
+            <label class="wide">
+                Outfit description
+                <textarea name="outfit_description"
+                    placeholder="Navy blue saree with silver embroidery"></textarea>
+            </label>
+        {% endif %}
+
+        <label class="wide">
+            Additional notes
+            <textarea name="notes"
+                placeholder="Constraints, priorities, colors, accessibility needs, or exclusions"></textarea>
+        </label>
+    </div>
+
+    <button class="button" type="submit" data-submit-button>
+        Generate recommendations
+    </button>
+</form>
+{% endblock %}

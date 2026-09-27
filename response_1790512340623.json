@@ -1,0 +1,16 @@
+{
+  "title": "Food Plan for 2 people",
+  "budget": 10000,
+  "currency": "INR",
+  "items": [
+    {
+      "name": "Vegetarian Thali",
+      "price": 5000
+    },
+    {
+      "name": "Groceries",
+      "price": 5000
+    }
+  ],
+  "preferences": "vegetarian,low oil"
+}
